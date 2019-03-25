@@ -18,6 +18,50 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.DeletedList,.CompletedList,.ToDoList
+{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  background-color: cornflowerblue;
+  padding: 35px;
+  border-radius: 10px;
+  }
+  .CompletedList,.DeletedList
+  {
+    width: 100%;
+  }
+  form
+  {
+    margin: auto;
+    width: 50%;
+  }
+
+.display
+{
+  display: flex;
+  margin: 10px;
+  width: 100%;
+  
+}
+.card
+{
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .App-link {
   color: #61dafb;
@@ -31,3 +75,8 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+

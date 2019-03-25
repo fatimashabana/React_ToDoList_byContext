@@ -1,26 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Switch } from 'react-router';
+import Home from './Components/ToDo/Home';
 import './App.css';
 
+export const MyContext = React.createContext({data:[]});
 class App extends Component {
+  state={
+    data:[]
+  }
+
+  addToDo=(todo)=>{
+    // const {data}=this.state;
+    this.setState({...this.state.data,data:[...this.state.data,todo]})
+    }
+  
+
   render() {
+    const value={
+      state:this.state,
+      addToDo:this.addToDo
+    }
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+  <MyContext.Provider value={value}>
+      <Router>
+        <Switch>
+         <Route exact path="/" component={Home} />
+        </Switch>
+     </Router>
+   </MyContext.Provider>
     );
   }
 }
